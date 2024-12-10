@@ -2,6 +2,8 @@
 Week 1
 # 8-Week SQL Challenge
 
+https://8weeksqlchallenge.com/case-study-1/
+![1](https://github.com/user-attachments/assets/fd5c2a4c-7be8-48b5-871c-98c8eb5e545c)
 
 
 
