@@ -5,14 +5,6 @@ Week 1
 https://8weeksqlchallenge.com/case-study-1/
 ![1](https://github.com/user-attachments/assets/fd5c2a4c-7be8-48b5-871c-98c8eb5e545c)
 
-
-
-# 📕 Table of Contents
-- [🛠️ Problem Statement](https://github.com/adunoluwa1/SQL-8-Weeks-Challenge/edit/main/Week_1/README.md#%EF%B8%8F-problem-statement)
-- [📂 Dataset](https://github.com/adunoluwa1/SQL-8-Weeks-Challenge/edit/main/Week_1/README.md#-dataset)
-- [✒️ Case Study Questions](https://github.com/adunoluwa1/SQL-8-Weeks-Challenge/edit/main/Week_1/README.md#%EF%B8%8Fcase-study-questions) 
-- [🏆 Solutions](https://github.com/adunoluwa1/SQL-8-Weeks-Challenge/edit/main/Week_1/README.md#-solutions)
-
 # 🛠️ Problem Statement
 > Danny aims to leverage customer data to gain valuable insights into their behavior, preferences, and loyalty. Specifically, he seeks to understand:
 
