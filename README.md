@@ -1,9 +1,9 @@
 # SQL-Data-Exploration
 Week 1
 # 8-Week SQL Challenge
-[```Home```](https://github.com/adunoluwa1/SQL-8-Weeks-Challenge) [```🌐 Case Study #1 - Danny's Diner```](https://8weeksqlchallenge.com/case-study-1/)
 
-![image](https://user-images.githubusercontent.com/99233674/199024658-a1b34542-46a8-442f-913b-6b44e31cf79c.png)
+
+
 
 # 📕 Table of Contents
 - [🛠️ Problem Statement](https://github.com/adunoluwa1/SQL-8-Weeks-Challenge/edit/main/Week_1/README.md#%EF%B8%8F-problem-statement)
@@ -12,11 +12,15 @@ Week 1
 - [🏆 Solutions](https://github.com/adunoluwa1/SQL-8-Weeks-Challenge/edit/main/Week_1/README.md#-solutions)
 
 # 🛠️ Problem Statement
-> Danny wants to use the data to answer a few simple questions about his customers, especially about their visiting patterns, how much money they’ve spent and also which menu items are their favourite. Having this deeper connection with his customers will help him deliver a better and more personalised experience for his loyal customers.
+> Danny aims to leverage customer data to gain valuable insights into their behavior, preferences, and loyalty. Specifically, he seeks to understand:
 
-> He plans on using these insights to help him decide whether he should expand the existing customer loyalty program - additionally he needs help to generate some basic datasets so his team can easily inspect the data without needing to use SQL.
+- Visiting patterns and frequency
+- Total spend and average transaction value
+- Favorite menu items and purchasing habits
 
-> Danny has provided you with a sample of his overall customer data due to privacy issues - but he hopes that these examples are enough for you to write fully functioning SQL queries to help him answer his questions!
+> By gaining a deeper understanding of his customers, Danny plans to enhance their experience through personalized offerings and targeted marketing initiatives. Furthermore, these insights will inform his decision on expanding the existing customer loyalty program.
+
+> To facilitate this analysis, Danny has provided a sample dataset, which will be used to develop fully functional SQL queries. These queries will enable Danny's team to easily inspect the data and gain actionable insights without requiring extensive SQL knowledge.
 
 # 📂 Dataset
 This case study has 3 key datasets 
@@ -89,14 +93,22 @@ Each of the following case study questions can be answered using a single SQL st
 10. In the first week after a customer joins the program (including their join date) they earn 2x points on all items, not just sushi - how many points do customer A and B have at the end of January?
 
 ## Bonus Questions
-> Danny also requires further information about the ranking of customer products, but he purposely does not need the ranking for non-member purchases so he expects null ranking values for the records when customers are not yet part of the loyalty program.
+> Danny also seeks to understand the ranking of customer products, with a specific requirement: he only wants to rank products purchased by loyalty program members. For non-member purchases, he expects the ranking values to be null.
+
+In other words, Danny wants to:
+
+- Rank products based on purchase frequency and revenue generated
+- Exclude non-member purchases from the ranking
+- Display null ranking values for non-member purchases
+
+This will enable Danny to gain insights into the purchasing behavior of his loyalty program members and tailor his marketing efforts accordingly
 
 
 # 🏆 Solutions
   <details><summary>View solution</summary>
   <p>
   
-1. Total amount spent by each customer
+## 1. Total amount spent by each customer
 
 ```sql
     --Using Joins
@@ -122,7 +134,7 @@ Each of the following case study questions can be answered using a single SQL st
         ORDER BY [Amount Spent] DESC
 ```
 
-2. Days each customer visited the restaurant
+## 2. Days each customer visited the restaurant
 
 ```sql
     --Using Nested subquery
@@ -138,7 +150,7 @@ Each of the following case study questions can be answered using a single SQL st
         FROM sales s
 ```
 
-3. First item from the menu purchased by each customer
+## 3. First item from the menu purchased by each customer
 
 ```sql
     --Using Joins
@@ -162,7 +174,7 @@ Each of the following case study questions can be answered using a single SQL st
                               WHERE s.customer_id = s1.customer_id)
         ORDER BY s.customer_id, m.product_name
 ```
-4. Most purchased item and number of times it was purchased
+## 4. Most purchased item and number of times it was purchased
 
 ```sql
     --Using Window Functions
@@ -184,7 +196,7 @@ Each of the following case study questions can be answered using a single SQL st
 
 ```
 
-5. Most popular item for each customer
+## 5. Most popular item for each customer
 
 ```sql
     --Using Window Functions
@@ -210,7 +222,7 @@ Each of the following case study questions can be answered using a single SQL st
         ON m.product_id = s.product_id
 ```
 
-6. First item purchased after becoming a member
+## 6. First item purchased after becoming a member
 
 ```sql
     --Using correlated subquery method
@@ -254,7 +266,7 @@ Each of the following case study questions can be answered using a single SQL st
             WHERE sq.List = 1
 ```
 
-7. Last item purchased just before becoming a member
+## 7. Last item purchased just before becoming a member
 
 ```sql
     -- One Method
@@ -299,7 +311,7 @@ Each of the following case study questions can be answered using a single SQL st
             WHERE sq.List = 1
 ```
 
-Q8. Total items and amount spent for each member before becoming a member
+# Q8. Total items and amount spent for each member before becoming a member
 
 ```sql
     --Using Joins and Window Functions
@@ -336,7 +348,7 @@ Q8. Total items and amount spent for each member before becoming a member
         ON mn.product_id = s1.product_id
 ```
 
-9. $1 = 10 points and sushi = 2x multiplier calculate each members points
+## 9. $1 = 10 points and sushi = 2x multiplier calculate each members points
 
 ```sql
     --Using Case statements
@@ -353,7 +365,7 @@ Q8. Total items and amount spent for each member before becoming a member
         GROUP BY sq.customer_id
 ```
 
-10. 2x on all items in the first week of joining
+## 10. 2x on all items in the first week of joining
 
 ```sql
     --Using case statements
